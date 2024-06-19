@@ -8,6 +8,33 @@
     html {
         font-family: theme(fontFamily.mono);
     }
+    ::-webkit-scrollbar {
+        width: theme(spacing.mdsm);
+        height: theme(spacing.mdsm);
+    }
+    ::-webkit-scrollbar-track {
+        background: theme(colors.gray.700);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: theme(colors.teal.600);
+
+        &:hover {
+            background: theme(colors.teal.400);
+        }
+    }
+}
+@layer components {
+    @property --pointer-glow {
+        syntax: '<percentage>';
+        inherits: false;
+        initial-value: 80%;
+    }
+    .transition-glowpointer {
+        animation: deactiveGlowPointer .4s ease-in-out 0s 1 normal forwards;
+    }
+    .transition-glowpointer--pressed {
+        animation: activeGlowPointer .4s ease-in-out 0s 1 normal forwards;
+    }
 }
 
 @layer utilities {    

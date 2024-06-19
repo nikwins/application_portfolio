@@ -48,6 +48,7 @@ onUnmounted(() => {
         </Head>
         <Body>
             <div id="page" class="relative flex flex-col min-h-[100vh] min-h-[calc(var(--vh))] pt-20">
+                <GlowPointer />
                 
                 <main id="mainContent" class="flex-1 overflow-hidden">
                     <div class="container">
