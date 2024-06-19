@@ -4,6 +4,8 @@ export default {
         desc: ''
     },
     general: {
+        name: 'Niklas Wingender',
+        position: 'Full-Stack Entwickler',
         backToOverview: 'Zurück zur Übersicht'
     }
 }

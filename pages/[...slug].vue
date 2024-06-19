@@ -1,11 +1,25 @@
 <script setup lang="ts">
+import { useLoaderAnimation } from '~/composables/useLoaderAnimation'
+
+definePageMeta({
+    pageTransition: {
+        name: 'ink-drops',
+        mode: 'out-in',
+        onEnter: (el: HTMLElement, done: () => void) => {
+            const { runLoaderAnimation } = useLoaderAnimation()
+            runLoaderAnimation(el)
+        },
+    }
+})
+
+const { runLoaderAnimation } = useLoaderAnimation()
 const { slug } = useRoute().params
 const url = slug && slug.length > 0 ? slug.join('/') : 'home'
 const isPreview = useRuntimeConfig().public.NODE_ENV !== 'production'
 const { locale } = useI18n()
 const resolveRelations = ['projects-favorites.projects']
 
-const { data: story, pending } = await useAsyncData(
+const { data: story } = await useAsyncData(
     `${locale.value}-${url}`,
     async () => {
         const { data } = await useStoryblokApi().get(`cdn/stories/${url.replace(/\/$/, '')}`, {
@@ -33,8 +47,12 @@ onMounted(() => {
             }
         )
     }
+    const body = document.body
+    runLoaderAnimation(body)
 })
 </script>
 <template>
-    <StoryblokComponent v-if="pending === false && story" :blok="story.content" />
+    <PageWrapper>
+        <StoryblokComponent v-if="story" :blok="story.content" />
+    </PageWrapper>
 </template>

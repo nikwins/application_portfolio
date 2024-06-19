@@ -1,4 +1,18 @@
 <script setup lang="ts">
+import { useLoaderAnimation } from '~/composables/useLoaderAnimation'
+
+definePageMeta({
+    pageTransition: {
+        name: 'ink-drops',
+        mode: 'out-in',
+        onEnter: (el: HTMLElement, done: () => void) => {
+            const { runLoaderAnimation } = useLoaderAnimation()
+            runLoaderAnimation(el)
+        },
+    }
+})
+
+const { runLoaderAnimation } = useLoaderAnimation()
 const { locale } = useI18n()
 const { slug } = useRoute().params
 const isPreview = useRuntimeConfig().public.NODE_ENV !== 'production'
@@ -15,8 +29,15 @@ if (!isPreview) {
         showError({ statusCode: 404, statusMessage: "Page Not Found" })
     }
 }
+
+onMounted(() => {
+    const body = document.body
+    runLoaderAnimation(body)
+})
 </script>
 
 <template>
-    <StoryblokComponent v-if="story" :blok="story.content" />
+    <PageWrapper>
+        <StoryblokComponent v-if="story" :blok="story.content" />
+    </PageWrapper>
 </template>
