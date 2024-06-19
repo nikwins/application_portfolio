@@ -67,9 +67,13 @@ watch(scrollY, async(newPos, oldPos) => {
         scrollingDown ? '-top-20' : 'top-0'
     ]">
         <div class="container h-full flex items-center justify-between">
-            <NuxtLink to="/">
+            <NuxtLink to="/" class="flex items-center">
                 <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-gray-900 text-lg font-bold">
                     NW
+                </div>
+                <div class="hidden sm:block sm:ml-base">
+                    <strong class="block text-white">{{ $t('general.name') }}</strong>
+                    <span>{{ $t('general.positionShort') }}</span>
                 </div>
             </NuxtLink>
             <nav v-if="headerMenu || headerButtonLink" class="flex items-center">

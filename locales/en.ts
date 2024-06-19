@@ -6,6 +6,9 @@ export default {
     general: {
         name: 'Niklas Wingender',
         position: 'Full-Stack Developer',
-        backToOverview: 'Back to overview'
+        positionShort: 'Web Dev',
+        backToStart: 'Back to start',
+        backToOverview: 'Back to overview',
+        errorText: 'Oops... Something must have gone wrong.'
     }
 }
