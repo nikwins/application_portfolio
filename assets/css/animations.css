@@ -1,0 +1,16 @@
+/* 
+    Custom animations
+*/
+@keyframes activeGlowPointer {
+    to {
+        --pointer-glow: 100%;
+    }
+}
+@keyframes deactiveGlowPointer {
+    from {
+        --pointer-glow: 100%;
+    }
+    to {
+        --pointer-glow: 80%;
+    }
+}
