@@ -128,6 +128,14 @@ export default defineNuxtConfig({
             '2xl': 1536
         },
         presets: {
+            logowall: {
+                modifiers: {
+                    format: 'webp',
+                    width: 300,
+                    height: 300,
+                    fit: 'in'
+                },
+            },
             icon: {
                 modifiers: {
                     format: 'webp',
