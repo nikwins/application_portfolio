@@ -44,4 +44,37 @@
         margin-right : calc( -100vw / 2 + 100% / 2 );
         width: 100vw;
     }
+    .styled-content {
+        p {
+            &:not(:last-child) {
+                margin-bottom: theme(spacing.base);
+                
+                &+ul {
+                    margin-top: calc(theme(spacing.sm) * -1);
+                }
+            }
+        }
+        ul {
+            list-style-image: url('~/assets/images/list-square-rotated.png');
+            padding-left: theme(spacing.mdlg);
+
+            li:not(:last-child) {
+                margin-bottom: theme(spacing.sm);
+            }
+        }
+        a {
+            border-bottom: 1px solid;
+            color: theme(colors.gray.200);
+            transition-property: theme(transitionProperty.colors);
+            transition-timing-function: theme(transitionTimingFunction.DEFAULT);
+            transition-duration: theme(transitionDuration.DEFAULT);
+
+            &:hover {
+                color: theme(colors.white);
+            }
+        }
+        b, strong {
+            color: theme(colors.white);
+        }
+    }
 }
