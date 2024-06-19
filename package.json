@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
+  },
+  "devDependencies": {
+    "@nuxtjs/i18n": "^8.1.1",
+    "@tailwindcss/typography": "^0.5.8",
+    "@types/animejs": "^3.1.12",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/nuxt": "^10.9.0",
+    "autoprefixer": "^10.4.14",
+    "nuxt": "^3.10.3",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-nesting": "^11.2.1",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@egjs/vue3-flicking": "^4.11.2",
+    "@headlessui/tailwindcss": "^0.2.1",
+    "@headlessui/vue": "^1.7.19",
+    "@nuxt/image": "^1.3.0",
+    "@storyblok/nuxt": "^6.0.4",
+    "@tailwindcss/forms": "^0.5.7",
+    "@vueuse/components": "^10.9.0",
+    "animejs": "^3.2.2"
+  }
+}
