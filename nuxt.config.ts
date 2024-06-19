@@ -127,5 +127,15 @@ export default defineNuxtConfig({
             'xxl': 1536,
             '2xl': 1536
         },
+        presets: {
+            icon: {
+                modifiers: {
+                    format: 'webp',
+                    width: 64,
+                    height: 64,
+                    fit: 'in'
+                },
+            }
+        },
     },
 })

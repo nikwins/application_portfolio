@@ -48,6 +48,8 @@ onUnmounted(() => {
         </Head>
         <Body>
             <div id="page" class="relative flex flex-col min-h-[100vh] min-h-[calc(var(--vh))] pt-20">
+                <TheHeader :currentLocale="currentLocale[0].code" />
+                
                 <GlowPointer />
                 
                 <main id="mainContent" class="flex-1 overflow-hidden">
@@ -55,6 +57,7 @@ onUnmounted(() => {
                         <slot />
                     </div>
                 </main>
+                <TheFooter :currentLocale="currentLocale[0].code" />
             </div>
         </Body>
     </Html>
