@@ -8,6 +8,10 @@ interface footerLogo {
     title: string;
     alt: string;
 }
+interface footerProjectLinkObject {
+    url: string;
+    target: string;
+}
 
 const storyblokApi = useStoryblokApi()
 const lang = computed(() => {
@@ -16,8 +20,8 @@ const lang = computed(() => {
 
 const footerProjectLogo = ref<footerLogo>()
 const footerProjectLink = ref<string>()
-const footerProjectContent = ref()
-const footerMetaContent = ref()
+const footerProjectContent = ref<string>()
+const footerMetaContent = ref<string>()
 
 const fetchData = async (lang: string) => {
     const { data } = await storyblokApi.get('cdn/stories/config', {
@@ -26,6 +30,7 @@ const fetchData = async (lang: string) => {
         language: lang
     })
     footerProjectLogo.value = data.story.content.footer_project_logo as footerLogo
+    footerProjectLink.value = data.story.content.footer_project_link as footerProjectLinkObject
     footerProjectContent.value = data.story.content.footer_project_content[0]
     footerMetaContent.value = data.story.content.footer_meta_content[0]
 }
@@ -43,7 +48,7 @@ watch(lang, async(newLang, oldLang) => {
 <template>
     <footer class="relative">
         <div class="container flex flex-col items-center justify-between py-lg lg:flex-row lg:h-20 lg:py-0">
-            <NuxtLink to="/" class="flex items-center transition-opacity opacity-80 hover:opacity-100">
+            <NuxtLink :to="footerProjectLink?.url" :target="footerProjectLink?.target" class="flex items-center transition-opacity opacity-80 hover:opacity-100">
                 <NuxtImg 
                     v-if="footerProjectLogo?.filename"
                     :src="footerProjectLogo.filename" 
