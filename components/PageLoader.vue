@@ -4,8 +4,8 @@
     <article>
         <section id="sectionLoader" class="fixed top-0 left-0 right-0 h-[200vh] z-[1000]">
             <div class="h-screen relative text-center flex flex-col flex-wrap justify-center bg-primary">
-                <BasicHeading :title="$t('general.name')" :size="1" align="center" color_variant="dark" />
-                <BasicHeading :title="$t('general.position')" :size="6" align="center" color_variant="dark" />
+                <BasicHeading :title="$t('general.name')" :size="1" align="center" color_variant="dark" :semantic="false" />
+                <BasicHeading :title="$t('general.position')" :size="6" align="center" color_variant="dark" :semantic="false" />
             </div>
             <div id="shapeWrap" class="relative z-10 -mt-sm">
                 <svg style="transform-origin: 50% 0%;" id="shape" class="h-screen w-full block overflow-hidden fill-primary origin-[50%_0%]" width="100%" height="100vh" preserveAspectRatio="none" viewBox="0 0 1440 800" xmlns:pathdata="http://www.codrops.com/">

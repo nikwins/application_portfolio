@@ -32,7 +32,6 @@ const props = defineProps<{
                 format="webp" 
                 provider="storyblok" 
                 sizes="320px sm:576px md:786px lg:786px xl:786px 2xl:786px" 
-                loading="lazy" 
                 :title="props.project.main_image.title" 
                 :alt="props.project.main_image.alt" 
                 class="!h-full w-full object-cover rounded" />

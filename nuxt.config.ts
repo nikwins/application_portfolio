@@ -3,7 +3,7 @@ import { fetchStories } from './composables/fetchStories'
 const baseUrl = 'https://hire.niklas-wingender.de'
 const seo = {
     title: 'Niklas Wingender | Web Developer',
-    description: '',
+    description: 'Schau Dir diese Website an, um einen Eindruck meiner Fähigkeiten zu erhalten',
     website: baseUrl + '/',
     image: baseUrl + '/seo/standard-banner.jpg'
 }
