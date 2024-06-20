@@ -56,10 +56,12 @@ const transitionDelay = computed(() => {
     return ''
 })
 
-window.addEventListener('scroll', () => {
-    const currentScrollTop = window.scrollY || document.documentElement.scrollTop
-    isScrollingUp.value = currentScrollTop < lastScrollTop.value
-    lastScrollTop.value = currentScrollTop
+onMounted(() => {
+    window.addEventListener('scroll', () => {
+        const currentScrollTop = window.scrollY || document.documentElement.scrollTop
+        isScrollingUp.value = currentScrollTop < lastScrollTop.value
+        lastScrollTop.value = currentScrollTop
+    })
 })
 </script>
 <template>
