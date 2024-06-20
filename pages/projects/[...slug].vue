@@ -37,7 +37,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <PageWrapper>
+    <section>
+        <PageLoader></PageLoader>
         <StoryblokComponent v-if="story" :blok="story.content" />
-    </PageWrapper>
+    </section>
 </template>

@@ -19,15 +19,11 @@ const isPreview = useRuntimeConfig().public.NODE_ENV !== 'production'
 const { locale } = useI18n()
 const resolveRelations = ['projects-favorites.projects']
 
-const { data: story } = await useAsyncData(
-    `${locale.value}-${url}`,
-    async () => {
-        const { data } = await useStoryblokApi().get(`cdn/stories/${url.replace(/\/$/, '')}`, {
-            version: isPreview ? 'draft' : 'published',
-            language: locale.value,
-            resolve_relations: resolveRelations
-        })
-        return data?.story
+const story = await useAsyncStoryblok(
+    url, {
+        version: isPreview ? 'draft' : 'published',
+        language: locale.value,
+        resolve_relations: resolveRelations
     }
 )
 
@@ -38,21 +34,13 @@ if (!isPreview) {
 }
 
 onMounted(() => {
-    if (isPreview && story.value && story.value.id) {
-        useStoryblokBridge(
-            story.value.id,
-            (evStory) => story.value = evStory,
-            {
-                resolveRelations,
-            }
-        )
-    }
     const body = document.body
     runLoaderAnimation(body)
 })
 </script>
 <template>
-    <PageWrapper>
+    <section>
+        <PageLoader></PageLoader>
         <StoryblokComponent v-if="story" :blok="story.content" />
-    </PageWrapper>
+    </section>
 </template>
