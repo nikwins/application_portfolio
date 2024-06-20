@@ -64,9 +64,9 @@ const subTitleClasses: Ref<string> = computed(() => {
 </script>
 <template>
     <div :class="['block w-full mb-sm lg:mb-mdsm', 'text-' + props.align]">
-        <p v-if="subtitle && props.show_subtitle_above" :class="subTitleClasses" v-html="subtitle"></p>
-        <component v-bind:is="!semantic ? 'p' : titleSize" :class="[titleClasses]" v-html="title"></component>
-        <p v-if="subtitle && !props.show_subtitle_above" :class="subTitleClasses" v-html="subtitle"></p>
+        <p v-if="props.subtitle && props.show_subtitle_above" :class="subTitleClasses" v-html="props.subtitle"></p>
+        <component v-bind:is="!semantic ? 'p' : titleSize" :class="[titleClasses]" v-html="props.title"></component>
+        <p v-if="props.subtitle && !props.show_subtitle_above" :class="subTitleClasses" v-html="props.subtitle"></p>
         <slot />
     </div>
 </template>

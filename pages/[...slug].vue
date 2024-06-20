@@ -5,16 +5,16 @@ definePageMeta({
     pageTransition: {
         name: 'ink-drops',
         mode: 'out-in',
-        onEnter: (el: HTMLElement, done: () => void) => {
+        onEnter: (el: Element, done: () => void) => {
             const { runLoaderAnimation } = useLoaderAnimation()
-            runLoaderAnimation(el)
+            runLoaderAnimation(el as HTMLElement)
         },
     }
 })
 
 const { runLoaderAnimation } = useLoaderAnimation()
 const { slug } = useRoute().params
-const url = slug && slug.length > 0 ? slug.join('/') : 'home'
+const url = slug && typeof slug !== 'string' && slug.length > 0 ? slug.join('/') : 'home'
 const isPreview = useRuntimeConfig().public.NODE_ENV !== 'production'
 const { locale } = useI18n()
 const resolveRelations = ['projects-favorites.projects']

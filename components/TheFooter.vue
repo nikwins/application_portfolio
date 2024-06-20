@@ -19,9 +19,9 @@ const lang = computed(() => {
 })
 
 const footerProjectLogo = ref<footerLogo>()
-const footerProjectLink = ref<string>()
-const footerProjectContent = ref<string>()
-const footerMetaContent = ref<string>()
+const footerProjectLink = ref<footerProjectLinkObject>()
+const footerProjectContent = ref()
+const footerMetaContent = ref()
 
 const fetchData = async (lang: string) => {
     const { data } = await storyblokApi.get('cdn/stories/config', {
@@ -58,9 +58,9 @@ watch(lang, async(newLang, oldLang) => {
                     loading="lazy" 
                     :title="footerProjectLogo.title" 
                     :alt="footerProjectLogo.alt" 
-                    class="my-auto mr-mdsm max-w-[theme(spacing.lg)] max-h-[theme(spacing.lg)] !object-contain" 
+                    class="order-1 my-auto mr-mdsm max-w-[theme(spacing.lg)] max-h-[theme(spacing.lg)] !object-contain" 
                 />
-                <StoryblokComponent v-if="footerProjectContent" :key="footerProjectContent" :blok="footerProjectContent" class="text-xs xl:text-sm" />
+                <StoryblokComponent v-if="footerProjectContent" :key="footerProjectContent" :blok="footerProjectContent" class="order-2 text-xs xl:text-sm" />
             </NuxtLink>
             <div class="flex mt-lg lg:mt-0">
                 <StoryblokComponent v-if="footerMetaContent" :key="footerMetaContent" :blok="footerMetaContent" class="text-xs xl:text-sm" />
