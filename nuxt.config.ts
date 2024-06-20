@@ -1,15 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const baseUrl = 'https://niklas-wingender.de'
+import { fetchStories } from './composables/fetchStories'
+const baseUrl = 'https://hire.niklas-wingender.de'
 const seo = {
     title: 'Niklas Wingender | Web Developer',
     description: '',
     website: baseUrl + '/',
     image: baseUrl + '/seo/standard-banner.jpg'
 }
-const locales = ['de', 'en']
-
 export default defineNuxtConfig({
-
     app: {
         head: {
             charset: 'utf-8',
@@ -64,7 +62,7 @@ export default defineNuxtConfig({
             },
         }
     },
-    ssr: process.env.NUXT_PUBLIC_NODE_ENV === 'production' ? true : false,
+    ssr: process.env.NODE_ENV === 'production' ? true : false,
     runtimeConfig: {
         public: {
             NODE_ENV: process.env.NODE_ENV,
@@ -74,8 +72,38 @@ export default defineNuxtConfig({
     },
     nitro: {
         compressPublicAssets: true,
-    },    
+    },  
     hooks: {
+        async 'nitro:config'(nitroConfig) {
+            if (!nitroConfig || nitroConfig.dev) {
+                return
+            }
+            const token = process.env.STORYBLOK_TOKEN
+        
+            let cache_version = 0
+        
+            // other routes that are not in Storyblok with their slug.
+            let routes = ['/'] // adds home directly but with / instead of /home
+            try {
+                const result = await fetch(`https://api.storyblok.com/v2/cdn/spaces/me?token=${token}`)
+        
+                if (!result.ok) {
+                    throw new Error('Could not fetch Storyblok data')
+                }
+                // timestamp of latest publish
+                const space = await result.json()
+                cache_version = space.space.version
+        
+                // Recursively fetch all routes and set them to the routes array
+                await fetchStories(routes, cache_version)
+                // Adds the routes to the prerenderer
+                if (nitroConfig.prerender && nitroConfig.prerender.routes) {
+                    nitroConfig.prerender.routes.push(...routes)
+                }
+            } catch (error) {
+                console.error(error)
+            }
+        },
     },
     css: ['~/assets/css/main.css'],
     postcss: {
