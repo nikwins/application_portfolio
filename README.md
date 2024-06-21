@@ -5,7 +5,7 @@ If you have arrived here, you are probably going through my application and cons
 
 ![Winking Meme](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnU3c2t3bzV5dHR0eHA3OHE0N3lmeXl5cjhqcHg5OXd4dWdrYTFveSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ui1hpJSyBDWlG/giphy.gif)
 
-If you are here to install this app, just follow this guide.
+If you are here to install this app, just follow this guide :rocket:
 
 
 ## Getting Started
@@ -13,6 +13,8 @@ If you are here to install this app, just follow this guide.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
+
+To get the application running, you first have need to have an [Storyblok](https://www.storyblok.com/) account. In your Storyblok space, create an [Access Token](https://www.storyblok.com/faq/retrieve-and-generate-access-tokens) with `Access Level` put to `Preview`.
 
 During development, apps are usually served via HTTP. But Storyblok v2 requires your app is served via HTTPS. Therefore, you must first install `mkcert` to generate local SSL certificates.
 #### For Linux & MacOs users
@@ -79,7 +81,9 @@ SEO_BANNER_REL_PATH  =  '/seo/standard-banner.jpg'  # place in public folder
 
 To deploy the application to a live server, change the `NODE_ENV` to `production` and run `yarn generate`.
 
-Copy the contents of `.output/public/` to your server.
+Copy the contents of `.output/public/` to your server. 
+
+You can also use Netlify, Vercel or similar services to deploy the app. For that, you can follow [this guide](https://www.storyblok.com/tp/create-a-preview-environment-for-your-nuxt-3-website/#b-deployment-b).
 
 ## Built With
 
