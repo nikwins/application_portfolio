@@ -3,6 +3,8 @@
 
 If you have arrived here, you are probably going through my application and considering whether you should invite me. If you take the trouble to read this readme, you seem to be doing a really good job, respect! I would love to have such a hard-working colleague, so why don't you invite me and convince yourself that I fit in :)
 
+![Winking Meme](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnU3c2t3bzV5dHR0eHA3OHE0N3lmeXl5cjhqcHg5OXd4dWdrYTFveSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ui1hpJSyBDWlG/giphy.gif)
+
 If you are here to install this app, just follow this guide.
 
 
