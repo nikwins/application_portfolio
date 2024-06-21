@@ -2,6 +2,7 @@
 # Portfolio for Job Applications
 
 If you have arrived here, you are probably going through my application and considering whether you should invite me. If you take the trouble to read this readme, you seem to be doing a really good job, respect! I would love to have such a hard-working colleague, so why don't you invite me and convince yourself that I fit in :)
+
 If you are here to install this app, just follow this guide.
 
 
@@ -20,7 +21,7 @@ brew install mkcert
 mkcert -install
 mkcert localhost
 ```
-**Install the HTTPS proxy and run the proxy with the commands below:** 
+**Install the HTTPS proxy and run the proxy with the commands below:**  
 You need to have Node and NPM installed for this work.
 
 ```
@@ -30,8 +31,12 @@ local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost
 HTTPS is now running on port 3010 and forwarding requests to http 3000.
 
 #### For Windows users
-**Install Chocolatey:**  a package manager for windows. You can view installation guides [here](https://chocolatey.org/).
-**Install mkcert for creating a valid certificate and install localhost with mkcert**: Open your terminal as admin and run the commands below consecutively; make sure that Chocolatey is installed first.
+**Install Chocolatey:**  
+A package manager for windows. You can view installation guides [here](https://chocolatey.org/).
+
+**Install mkcert for creating a valid certificate and install localhost with mkcert:**  
+Open your terminal as admin and run the commands below consecutively; make sure that Chocolatey is installed first.
+
 ```
 choco install mkcert // install mkcert
 mkcert --version // check the mkcert version
@@ -55,8 +60,9 @@ and run the dev server.
 yarn dev
 ```
 
-**Setup the .env**
+**Setup the .env:**  
 Copy the contents of `.env.sample` to `.env` and change the values. You will need to put at least a token to the `STORYBLOK_PREVIEW_TOKEN` variable. The default settings are:
+
 ```
 STORYBLOK_TOKEN  =  ''  							# add your production token here
 STORYBLOK_PREVIEW_TOKEN  =  ''  					# add your preview token here
@@ -69,7 +75,8 @@ SEO_BANNER_REL_PATH  =  '/seo/standard-banner.jpg'  # place in public folder
 
 ## Deployment
 
-To deploy the application to a live server, change the `NODE_ENV` to `production` and run `yarn generate`. 
+To deploy the application to a live server, change the `NODE_ENV` to `production` and run `yarn generate`.
+
 Copy the contents of `.output/public/` to your server.
 
 ## Built With
