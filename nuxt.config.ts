@@ -1,11 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { fetchStories } from './composables/fetchStories'
-const baseUrl = 'https://hire.niklas-wingender.de'
 const seo = {
-    title: 'Niklas Wingender | Web Developer',
-    description: 'Schau Dir diese Website an, um einen Eindruck meiner Fähigkeiten zu erhalten',
-    website: baseUrl + '/',
-    image: baseUrl + '/seo/standard-banner.jpg'
+    title: process.env.SEO_TITLE,
+    description: process.env.SEO_DESCRIPTION,
+    website: process.env.BASE_URL + '/',
+    image: process.env.BASE_URL && process.env.SEO_BANNER_REL_PATH ? process.env.BASE_URL + process.env.SEO_BANNER_REL_PATH : ''
 }
 export default defineNuxtConfig({
     app: {
