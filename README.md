@@ -64,12 +64,12 @@ yarn dev
 Copy the contents of `.env.sample` to `.env` and change the values. You will need to put at least a token to the `STORYBLOK_PREVIEW_TOKEN` variable. The default settings are:
 
 ```
-STORYBLOK_TOKEN  =  ''  							# add your production token here
-STORYBLOK_PREVIEW_TOKEN  =  ''  					# add your preview token here
-NODE_ENV  =  'development'  						# | change to "production" when deploying
-BASE_URL  =  ''  									# https://your_website.com
-SEO_TITLE  =  ''  									# title of the website
-SEO_DESCRIPTION  =  ''  							# description of the website
+STORYBLOK_TOKEN  =  ''                              # add your production token here
+STORYBLOK_PREVIEW_TOKEN  =  ''                      # add your preview token here
+NODE_ENV  =  'development'                          # | change to "production" when deploying
+BASE_URL  =  ''                                     # https://your_website.com
+SEO_TITLE  =  ''                                    # title of the website
+SEO_DESCRIPTION  =  ''                              # description of the website
 SEO_BANNER_REL_PATH  =  '/seo/standard-banner.jpg'  # place in public folder
 ```
 
