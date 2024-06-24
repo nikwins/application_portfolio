@@ -250,7 +250,7 @@ onMounted(() => {
         }
     }, 250))
 })
-onUnmounted(() => {
+onBeforeUnmount(() => {
     removeAnimations()
     if (animatedSquares.value) {
         animatedSquares.value.removeEventListener("click", restartAnimation)
