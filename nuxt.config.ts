@@ -142,7 +142,7 @@ export default defineNuxtConfig({
                     }
                 ],
                 defaultLocale: 'de',
-                baseUrl: baseUrl,
+                baseUrl: process.env.BASE_URL,
                 compilation: {
                     strictMessage: false,
                     // escapeHtml: true
