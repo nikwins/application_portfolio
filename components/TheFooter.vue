@@ -62,9 +62,9 @@ watch(lang, async(newLang, oldLang) => {
                 />
                 <StoryblokComponent v-if="footerProjectContent" :key="footerProjectContent" :blok="footerProjectContent" class="order-2 text-xs xl:text-sm" />
             </NuxtLink>
-            <div class="flex mt-lg lg:mt-0">
-                <StoryblokComponent v-if="footerMetaContent" :key="footerMetaContent" :blok="footerMetaContent" class="text-xs xl:text-sm" />
-                <span class="text-xs text-red-500 inline-block ml-sm xl:text-sm">&#10084;</span>
+            <div class="mt-lg lg:mt-0">
+                <StoryblokComponent v-if="footerMetaContent" :key="footerMetaContent" :blok="footerMetaContent" class="inline text-xs [&>p]:inline xl:text-sm" />
+                <span class="text-xs text-red-500 inline ml-sm xl:text-sm">&#10084;</span>
             </div>
         </div>
     </footer>
