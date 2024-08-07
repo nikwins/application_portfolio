@@ -14,7 +14,7 @@ const head = useLocaleHead({
     identifierAttribute: 'id',
     addSeoAttributes: true
 })
-const title = t('seo.title')
+const title = process.env.SEO_TITLE
 
 const setViewportHeight = () => {
     // Then we set the value in the --vh custom property to the root of the document

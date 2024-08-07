@@ -1,8 +1,4 @@
 export default {
-    seo: {
-        title: 'Niklas Wingender | Web Developer',
-        desc: ''
-    },
     general: {
         name: 'Niklas Wingender',
         position: 'Full-Stack Entwickler',
@@ -10,5 +6,11 @@ export default {
         backToStart: 'Zurück zur Startseite',
         backToOverview: 'Zurück zur Übersicht',
         errorText: 'Upps.. Da ist wohl etwas schief gelaufen.',
+    },
+    project: {
+        toWebsite: 'Zur Website',
+        year: 'Jahr',
+        categories: 'Kategorien',
+        techstack: 'Tech-Stack',
     }
 }
