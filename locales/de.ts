@@ -1,5 +1,6 @@
 export default {
     general: {
+        title: 'Niklas Wingender | Web Developer',
         name: 'Niklas Wingender',
         position: 'Full-Stack Entwickler',
         positionShort: 'Web Dev',
