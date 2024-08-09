@@ -14,8 +14,6 @@ const head = useLocaleHead({
     identifierAttribute: 'id',
     addSeoAttributes: true
 })
-const title = process.env.SEO_TITLE
-
 const setViewportHeight = () => {
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty("--vh", `${height.value}px`)
@@ -37,8 +35,6 @@ onUnmounted(() => {
 <template>
     <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
         <Head>
-            <Title>{{ title }}</Title>
-
             <template v-for="link in head.link" :key="link.id">
                 <Link :id="link.id" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
             </template>
