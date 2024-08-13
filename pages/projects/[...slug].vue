@@ -14,9 +14,12 @@ definePageMeta({
 
 const { runLoaderAnimation } = useLoaderAnimation()
 const { locale } = useI18n()
-const { slug } = useRoute().params
+let { slug } = useRoute().params
 const isPreview = useRuntimeConfig().public.NODE_ENV !== 'production'
 
+if (slug && slug.length > 1) {
+    slug = slug[0]
+}
 const story = await useAsyncStoryblok(
     `projects/${slug}`, {
         version: isPreview ? 'draft' : 'published',

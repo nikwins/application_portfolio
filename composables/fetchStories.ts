@@ -1,5 +1,5 @@
 export const fetchStories = async(routes: string[], cacheVersion: number, page: number = 1) => {
-    const token = process.env.STORYBLOK_PREVIEW_TOKEN
+    const token = process.env.STORYBLOK_TOKEN
     const version = 'published'
     const perPage = 100
     const toIgnore = ['home', 'config']
